@@ -8,7 +8,7 @@
     --color-gray-20: hsl(0, 90%, 20%);
     --color-gray-10: hsl(0, 90%, 10%);
 
-    --color--primary: hsl(0, 90%, 30%);
+    --color--primary: hsl(0, 90%, 35%);
     --color--primary-opposite: var(--color-gray-98);
 
     --color--default-background: var(--color--primary-opposite);
@@ -103,7 +103,7 @@ svg {
 }
 
 .content-wrapper {
-    --full-width: 80rem;
+    --full-width: 100rem;
     --full-width-padding-inline: max((100% - var(--full-width)) / 2, var(--minimum-inline-padding));
 
     padding-inline: var(--full-width-padding-inline);
