@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --color-gray-98: hsl(0, 90%, 98%);
+    --color-gray-90: hsl(0, 90%, 90%);
+    --color-gray-80: hsl(0, 90%, 80%);
+    --color-gray-70: hsl(0, 90%, 70%);
+    --color-gray-40: hsl(0, 90%, 40%);
+    --color-gray-30: hsl(0, 90%, 30%);
+    --color-gray-20: hsl(0, 90%, 20%);
+    --color-gray-10: hsl(0, 90%, 10%);
+
+    --color--primary: hsl(0, 90%, 30%);
+    --color--primary-opposite: var(--color-gray-98);
+
+    --color--default-background: var(--color--primary-opposite);
+    --color--default-foreground: var(--color--primary);
+
+    --color--body-background: var(--color--default-background);
+    --color--body-foreground: var(--color--default-foreground);
+
+    --color--box-shadow--subtle: hsla(0, 90%, 10%, 12%);
+    --box-shadow--subtle: 0 0.2rem 1rem 0 var(--color--box-shadow--subtle);
+
+    --minimum-inline-padding: 2rem;
+
+    --border-radius: 0.25rem;
+
+    --animation--duration--fast: 0.2s;
+    --animation--duration--normal: 0.5s;
+    --animation--duration--slow: 1s;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Vazirmatn', sans-serif;
+
+    scroll-behavior: smooth;
+}
+
+input,
+label,
+select,
+textarea,
+button,
+fieldset,
+legend,
+datalist,
+output,
+option,
+optgroup {
+    font-family: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+.button {
+    background-color: var(--color--primary);
+    color: var(--color--primary-opposite);
+
+    display: block;
+
+    min-width: 10rem;
+    width: fit-content;
+
+    padding: 0.5em 2em;
+
+    border: none;
+    border-radius: var(--border-radius);
+
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+
+    cursor: pointer;
+
+    &::selection {
+        background-color: var(--color--primary-opposite);
+        color: var(--color--primary);
+    }
+}
+
+img {
+    display: block;
+}
+
+svg {
+    fill: currentColor;
+
+    display: block;
+
+    width: 1em;
+    height: 1em;
+}
+
+.content-wrapper {
+    --full-width: 80rem;
+    --full-width-padding-inline: max((100% - var(--full-width)) / 2, var(--minimum-inline-padding));
+
+    padding-inline: var(--full-width-padding-inline);
+}
