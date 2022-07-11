@@ -1,5 +1,8 @@
+@import "~ngx-popperjs/scss/theme";
+
 :root {
     --color-gray-98: hsl(0, 0%, 98%);
+    --color-gray-95: hsl(0, 0%, 95%);
     --color-gray-90: hsl(0, 0%, 90%);
     --color-gray-80: hsl(0, 0%, 80%);
     --color-gray-70: hsl(0, 0%, 70%);
@@ -8,11 +11,11 @@
     --color-gray-20: hsl(0, 0%, 20%);
     --color-gray-10: hsl(0, 0%, 10%);
 
-    --color--primary: hsl(0, 90%, 35%);
+    --color--primary: hsl(353, 84%, 58%);
     --color--primary-opposite: var(--color-gray-98);
 
-    --color--default-background: var(--color--primary-opposite);
-    --color--default-foreground: var(--color--primary);
+    --color--default-background: var(--color-gray-98);
+    --color--default-foreground: var(--color-gray-10);
 
     --color--body-background: var(--color--default-background);
     --color--body-foreground: var(--color--default-foreground);
@@ -44,6 +47,13 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    @include ngx-popperjs-theme(#fff, #000, 200px, 1);
+
+    background-color: var(--color--body-background);
+    color: var(--color--body-foreground);
+}
+
 input,
 label,
 select,
@@ -62,30 +72,34 @@ ul {
     list-style: none;
 }
 
+a {
+    color: inherit;
+}
+
 button,
 .button {
-    background-color: var(--color--primary);
-    color: var(--color--primary-opposite);
+    background-color: transparent;
 
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-    min-width: 10rem;
     width: fit-content;
 
-    padding: 0.5em 2em;
+    padding: 0.5em;
 
     border: none;
     border-radius: var(--border-radius);
 
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     text-align: center;
+    line-height: 1;
 
     cursor: pointer;
 
-    &::selection {
-        background-color: var(--color--primary-opposite);
-        color: var(--color--primary);
+    &:hover {
+        background-color: var(--color-gray-95);
     }
 }
 

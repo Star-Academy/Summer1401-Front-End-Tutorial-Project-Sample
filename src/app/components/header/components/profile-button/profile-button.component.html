@@ -1,1 +1,8 @@
-<p>profile-button works!</p>
+<button [popper]="popper1Content" [popperPlacement]="NgxPopperjsPlacements.BOTTOM">
+    <i class="far fa-user"></i>
+    <i class="far fa-angle-down"></i>
+</button>
+
+<popper-content #popper1Content>
+    <p class="bold">Popper on bottom</p>
+</popper-content>

@@ -1,1 +1,11 @@
-<p>search-box works!</p>
+<div class="box" (click)="input.focus()">
+    <i class="far fa-magnifying-glass"></i>
+
+    <input
+        #input
+        type="text"
+        [(ngModel)]="searchPhrase"
+        (ngModelChange)="searchPhraseChange.emit($event)"
+        placeholder="جستجو"
+    />
+</div>
