@@ -1,13 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home.component';
-import {AparatComponent} from './icons/aparat/aparat.component';
-import {InstagramComponent} from './icons/instagram/instagram.component';
-import {LinkedinComponent} from './icons/linkedin/linkedin.component';
-import {TelegramComponent} from './icons/telegram/telegram.component';
+import {SlideshowComponent} from './components/slideshow/slideshow.component';
+import {HeaderModule} from '../../components/header/header.module';
+import {FooterModule} from '../../components/footer/footer.module';
 
 @NgModule({
-    declarations: [HomeComponent, AparatComponent, InstagramComponent, LinkedinComponent, TelegramComponent],
-    imports: [CommonModule],
+    declarations: [HomeComponent, SlideshowComponent],
+    imports: [CommonModule, HeaderModule, FooterModule],
 })
 export class HomeModule {}
