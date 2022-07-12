@@ -3,11 +3,11 @@
 
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 
-    padding: 0.5rem 1rem;
-
-    border-radius: 0.2rem;
+    padding: 1rem 2rem;
+	
+	border-radius: var(--border-radius);
 
     cursor: text;
 

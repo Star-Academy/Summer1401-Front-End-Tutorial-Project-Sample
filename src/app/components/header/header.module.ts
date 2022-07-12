@@ -9,9 +9,10 @@ import {ProfileButtonComponent} from './components/profile-button/profile-button
 import {ButtonModule} from '../button/button.module';
 import {FormsModule} from '@angular/forms';
 import {NgxPopperjsModule} from 'ngx-popperjs';
+import { MegaNavComponent } from './components/mega-nav/mega-nav.component';
 
 @NgModule({
-    declarations: [HeaderComponent, SearchBoxComponent, ProfileButtonComponent],
+    declarations: [HeaderComponent, SearchBoxComponent, ProfileButtonComponent, MegaNavComponent],
     exports: [HeaderComponent],
     imports: [CommonModule, RouterModule, DividerModule, ButtonModule, FormsModule, NgxPopperjsModule],
 })

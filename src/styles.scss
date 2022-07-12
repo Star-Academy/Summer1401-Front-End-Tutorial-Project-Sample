@@ -3,9 +3,11 @@
 :root {
     --color-gray-98: hsl(0, 0%, 98%);
     --color-gray-95: hsl(0, 0%, 95%);
+    --color-gray-92: hsl(0, 0%, 92%);
     --color-gray-90: hsl(0, 0%, 90%);
     --color-gray-80: hsl(0, 0%, 80%);
     --color-gray-70: hsl(0, 0%, 70%);
+    --color-gray-50: hsl(0, 0%, 50%);
     --color-gray-40: hsl(0, 0%, 40%);
     --color-gray-30: hsl(0, 0%, 30%);
     --color-gray-20: hsl(0, 0%, 20%);
@@ -23,7 +25,7 @@
     --color--box-shadow--subtle: hsla(0, 90%, 10%, 12%);
     --box-shadow--subtle: 0 0.2rem 1rem 0 var(--color--box-shadow--subtle);
 
-    --minimum-inline-padding: 2rem;
+    --minimum-inline-padding: 4rem;
 
     --border-radius: 0.25rem;
 
@@ -43,6 +45,7 @@
 
 html {
     font-family: "Vazirmatn", sans-serif;
+    font-size: 62.5%;
 
     scroll-behavior: smooth;
 }
@@ -50,6 +53,8 @@ html {
 body {
     background-color: var(--color--body-background);
     color: var(--color--body-foreground);
+
+    font-size: 1.6rem;
 
     popper-content {
         .ngxp__container {
@@ -59,8 +64,6 @@ body {
                 0 1px 14px 0 rgba(0, 0, 0, 0.02);
 
             z-index: 1;
-
-            max-width: 25rem;
 
             border: 0;
 
@@ -118,16 +121,14 @@ button,
     &:not(.reset) {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 1rem;
 
         width: fit-content;
 
-        padding: 0.5em;
+        padding: 1rem;
 
         border-radius: var(--border-radius);
 
-        font-size: 1rem;
-        font-weight: 700;
         text-align: center;
         line-height: 1;
 
@@ -151,8 +152,16 @@ svg {
 }
 
 .content-wrapper {
-    --full-width: 100rem;
+    --full-width: 160rem;
     --full-width-padding-inline: max((100% - var(--full-width)) / 2, var(--minimum-inline-padding));
 
     padding-inline: var(--full-width-padding-inline);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.fade {
+    color: var(--color-gray-50);
 }

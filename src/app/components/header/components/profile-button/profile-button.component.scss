@@ -1,17 +1,17 @@
 .rows {
-    --padding: 1rem;
+    --padding: 2rem;
 
     display: flex;
     flex-direction: column;
 
-    min-width: 16rem;
+    min-width: 28rem;
     width: max-content;
 
     > :not(app-divider) {
         display: grid;
         grid-template-columns: 1.5em 1fr auto;
         align-items: center;
-        gap: 0.5rem;
+        gap: 1rem;
 
         padding: var(--padding);
 
@@ -33,17 +33,9 @@
 
             font-size: 0.7em;
 
-            .bold {
+            .number {
                 font-size: 1.2em;
             }
-        }
-
-        .bold {
-            font-weight: 700;
-        }
-
-        .fade {
-            color: var(--color-gray-30);
         }
 
         &:hover {

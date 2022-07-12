@@ -1,0 +1,79 @@
+<nav class="content-wrapper">
+    <ul>
+        <li>
+            <button
+                class="bold"
+                [popper]="popperContent"
+                [popperPlacement]="NgxPopperjsPlacements.BOTTOMEND"
+                [popperTrigger]="NgxPopperjsTriggers.hover"
+            >
+                <i class="far fa-bars"></i>
+                دسته‌بندی کالاها
+            </button>
+
+            <popper-content #popperContent class="no-padding">
+                <ul class="categories">
+                    <li *ngFor="let category of categories">
+                        <i [class]="category.icon"></i>
+                        <div>{{ category.title }}</div>
+
+                        <ul class="sub-categories">
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="sub-categories">
+                    <ng-container *ngIf="activeCategory">
+                        <div class="all">
+                            همه محصولات
+                            {{ activeCategory.title }}
+                            <i class="far fa-angle-left"></i>
+                        </div>
+
+                        <ul>
+                            <li *ngFor="let subCategory of activeCategory.subCategories">
+                                <a [class.primary]="subCategory.isPrimarySubCategory" [routerLink]="subCategory.link">
+                                    {{ subCategory.title }}
+                                    <i *ngIf="subCategory.isPrimarySubCategory" class="far fa-angle-left"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </ng-container>
+                </div>
+            </popper-content>
+        </li>
+
+        <app-divider></app-divider>
+
+        <li>
+            <button class="fade">
+                <i class="far fa-store"></i>
+                سوپرمارکت
+            </button>
+        </li>
+        <li>
+            <button class="fade">
+                <i class="far fa-fire"></i>
+                پرفروش‌ترین‌ها
+            </button>
+        </li>
+        <li>
+            <button class="fade">
+                <i class="far fa-tag"></i>
+                تخفیف‌ها و پیشنهادها
+            </button>
+        </li>
+        <li>
+            <button class="fade">
+                <i class="far fa-percent"></i>
+                شگفت‌انگیزها
+            </button>
+        </li>
+
+        <app-divider></app-divider>
+
+        <li><a class="button fade" routerLink="faq">سوالی دارید؟</a></li>
+        <li><a class="button fade" routerLink="#">فروشنده شوید!</a></li>
+    </ul>
+</nav>
