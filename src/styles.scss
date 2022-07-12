@@ -16,6 +16,8 @@
     --color--primary: hsl(353, 84%, 58%);
     --color--primary-opposite: var(--color-gray-98);
 
+    --color-fade: var(--color-gray-50);
+
     --color--default-background: var(--color-gray-98);
     --color--default-foreground: var(--color-gray-10);
 
@@ -65,6 +67,8 @@ body {
 
             z-index: 1;
 
+            padding: 0;
+
             border: 0;
 
             > .ngxp__arrow {
@@ -74,9 +78,9 @@ body {
             }
         }
 
-        &.no-padding {
-            .ngxp__container {
-                padding: 0;
+        &.no-arrow {
+            .ngxp__container > .ngxp__arrow {
+                display: none;
             }
         }
     }
@@ -163,5 +167,5 @@ svg {
 }
 
 .fade {
-    color: var(--color-gray-50);
+    color: var(--color-fade);
 }

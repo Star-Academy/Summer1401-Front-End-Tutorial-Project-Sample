@@ -1,12 +1,131 @@
 nav {
+    position: relative;
+
     font-size: 1.2rem;
 
-    ul {
+    > ul {
         display: flex;
         align-items: center;
         gap: 1rem;
 
-        li {
+        > li {
+            button,
+            .button {
+                padding: 2rem 1rem;
+
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+
+            .mega-nav {
+                display: grid;
+                grid-template-columns: auto 1fr;
+
+                width: 100vw;
+                max-width: var(--full-width);
+
+                font-size: 1.4rem;
+
+                .categories {
+                    display: flex;
+                    flex-direction: column;
+
+                    li {
+                        display: grid;
+                        grid-template-columns: 1.5em 1fr;
+                        align-items: center;
+                        gap: 1rem;
+
+                        padding: 1rem;
+
+                        cursor: default;
+
+                        i {
+                            justify-self: center;
+                        }
+
+                        &.active,
+                        &:hover {
+                            background-color: var(--color-gray-95);
+                            color: var(--color--primary);
+                        }
+                    }
+                }
+
+                .sub-categories {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4rem;
+
+                    height: 100%;
+
+                    padding: 2rem;
+
+                    .all {
+                        font-size: 1.3rem;
+                    }
+
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+
+                        height: 40rem;
+
+                        li {
+                            a {
+                                display: flex;
+                                align-items: center;
+                                gap: 0.5rem;
+
+                                padding: 1rem 1rem;
+
+                                line-height: 1;
+
+                                &:not(.primary) {
+                                    color: var(--color-fade);
+
+                                    font-size: 1.3rem;
+                                }
+
+                                &.primary {
+                                    &::before {
+                                        content: "";
+
+                                        background-color: var(--color--primary);
+
+                                        width: 0.2rem;
+                                        height: 1em;
+                                    }
+                                }
+
+                                &:hover {
+                                    color: var(--color--primary);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .indicator {
+        background-color: var(--color--primary);
+
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-end: 0;
+
+        width: 1px;
+        height: 0.2rem;
+
+        transform: translateX(calc(var(--x) * 1px)) scaleX(var(--width));
+        transform-origin: left;
+
+        &:not(.noop) {
+            transition: transform 0.1s ease-in-out;
         }
     }
 }

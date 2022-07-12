@@ -6,40 +6,48 @@
                 [popper]="popperContent"
                 [popperPlacement]="NgxPopperjsPlacements.BOTTOMEND"
                 [popperTrigger]="NgxPopperjsTriggers.hover"
+                [popperModifiers]="popperModifiers"
+                (mouseenter)="buttonMouseEnterHandler($event)"
+                (mouseleave)="buttonMouseLeaveHandler()"
             >
                 <i class="far fa-bars"></i>
                 دسته‌بندی کالاها
             </button>
 
-            <popper-content #popperContent class="no-padding">
-                <ul class="categories">
-                    <li *ngFor="let category of categories">
-                        <i [class]="category.icon"></i>
-                        <div>{{ category.title }}</div>
+            <popper-content #popperContent class="no-arrow">
+                <div class="mega-nav">
+                    <ul class="categories">
+                        <li
+                            *ngFor="let category of categories"
+                            [class.active]="category === activeCategory"
+                            (mouseenter)="activeCategory = category"
+                        >
+                            <i [class]="category.icon"></i>
+                            <div>{{ category.title }}</div>
+                        </li>
+                    </ul>
 
-                        <ul class="sub-categories">
-                            <li></li>
-                        </ul>
-                    </li>
-                </ul>
+                    <div class="sub-categories">
+                        <ng-container *ngIf="activeCategory">
+                            <div class="all">
+                                همه محصولات
+                                {{ activeCategory.title }}
+                                <i class="far fa-angle-left"></i>
+                            </div>
 
-                <div class="sub-categories">
-                    <ng-container *ngIf="activeCategory">
-                        <div class="all">
-                            همه محصولات
-                            {{ activeCategory.title }}
-                            <i class="far fa-angle-left"></i>
-                        </div>
-
-                        <ul>
-                            <li *ngFor="let subCategory of activeCategory.subCategories">
-                                <a [class.primary]="subCategory.isPrimarySubCategory" [routerLink]="subCategory.link">
-                                    {{ subCategory.title }}
-                                    <i *ngIf="subCategory.isPrimarySubCategory" class="far fa-angle-left"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </ng-container>
+                            <ul>
+                                <li *ngFor="let subCategory of activeCategory.subCategories">
+                                    <a
+                                        [class.primary]="subCategory.isPrimarySubCategory"
+                                        [routerLink]="subCategory.link"
+                                    >
+                                        {{ subCategory.title }}
+                                        <i *ngIf="subCategory.isPrimarySubCategory" class="far fa-angle-left"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </ng-container>
+                    </div>
                 </div>
             </popper-content>
         </li>
@@ -47,25 +55,41 @@
         <app-divider></app-divider>
 
         <li>
-            <button class="fade">
+            <button
+                class="fade"
+                (mouseenter)="buttonMouseEnterHandler($event)"
+                (mouseleave)="buttonMouseLeaveHandler()"
+            >
                 <i class="far fa-store"></i>
                 سوپرمارکت
             </button>
         </li>
         <li>
-            <button class="fade">
+            <button
+                class="fade"
+                (mouseenter)="buttonMouseEnterHandler($event)"
+                (mouseleave)="buttonMouseLeaveHandler()"
+            >
                 <i class="far fa-fire"></i>
                 پرفروش‌ترین‌ها
             </button>
         </li>
         <li>
-            <button class="fade">
+            <button
+                class="fade"
+                (mouseenter)="buttonMouseEnterHandler($event)"
+                (mouseleave)="buttonMouseLeaveHandler()"
+            >
                 <i class="far fa-tag"></i>
                 تخفیف‌ها و پیشنهادها
             </button>
         </li>
         <li>
-            <button class="fade">
+            <button
+                class="fade"
+                (mouseenter)="buttonMouseEnterHandler($event)"
+                (mouseleave)="buttonMouseLeaveHandler()"
+            >
                 <i class="far fa-percent"></i>
                 شگفت‌انگیزها
             </button>
@@ -73,7 +97,27 @@
 
         <app-divider></app-divider>
 
-        <li><a class="button fade" routerLink="faq">سوالی دارید؟</a></li>
-        <li><a class="button fade" routerLink="#">فروشنده شوید!</a></li>
+        <li>
+            <a
+                class="button fade"
+                routerLink="faq"
+                (mouseenter)="buttonMouseEnterHandler($event)"
+                (mouseleave)="buttonMouseLeaveHandler()"
+            >
+                سوالی دارید؟
+            </a>
+        </li>
+        <li>
+            <a
+                class="button fade"
+                routerLink="#"
+                (mouseenter)="buttonMouseEnterHandler($event)"
+                (mouseleave)="buttonMouseLeaveHandler()"
+            >
+                فروشنده شوید!
+            </a>
+        </li>
     </ul>
+
+    <i class="indicator" [style.--width]="indicatorWidth" [style.--x]="indicatorX"></i>
 </nav>
