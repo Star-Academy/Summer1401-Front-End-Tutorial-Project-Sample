@@ -1,1 +1,18 @@
-<p>slideshow works!</p>
+<div class="slideshow" [style.--active-index]="activeIndex">
+    <ol>
+        <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
+            <img [src]="item.src" alt="" />
+        </li>
+    </ol>
+
+    <div class="overlay">
+        <div class="controls">
+            <button (click)="changeActiveIndex(activeIndex - 1)"><i class="far fa-angle-right"></i></button>
+            <button (click)="changeActiveIndex(activeIndex + 1)"><i class="far fa-angle-left"></i></button>
+        </div>
+
+        <div class="bullets">
+            <i *ngFor="let _ of items; index as index" [class.active]="index === activeIndex"></i>
+        </div>
+    </div>
+</div>
