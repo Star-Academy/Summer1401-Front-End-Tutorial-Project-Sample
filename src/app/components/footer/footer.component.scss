@@ -1,0 +1,108 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    padding-block: 2rem;
+
+    .top-row,
+    .phone,
+    .features {
+        font-size: 1.2rem;
+    }
+
+    .top-row {
+        display: flex;
+        align-items: center;
+
+        .logo-and-phone {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+
+            img {
+                width: auto;
+                height: 3rem;
+                object-fit: cover;
+            }
+        }
+
+        button {
+            color: var(--color-fade);
+
+            margin-inline-start: auto;
+        }
+    }
+
+    .phone {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .features {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        margin-block-end: 2rem;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 6rem;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .links {
+        display: flex;
+        justify-content: space-between;
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .items {
+                color: var(--color-fade);
+
+                display: flex;
+                flex-direction: column;
+                gap: inherit;
+            }
+
+            .social-medias {
+                color: var(--color-fade);
+
+                display: flex;
+                align-items: center;
+                gap: 4rem;
+
+                margin-block-end: 2rem;
+
+                font-size: 3.2rem;
+            }
+
+            form {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .input-box {
+                    flex: 1 1 0;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+    }
+}
