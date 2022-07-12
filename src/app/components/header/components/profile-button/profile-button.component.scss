@@ -1,0 +1,57 @@
+.rows {
+    --padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 16rem;
+    width: max-content;
+
+    > :not(app-divider) {
+        display: grid;
+        grid-template-columns: 1.5em 1fr auto;
+        align-items: center;
+        gap: 0.5rem;
+
+        padding: var(--padding);
+
+        > :first-child {
+            justify-self: center;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+
+            border-radius: 999rem;
+        }
+
+        .suffix {
+            display: flex;
+            align-items: center;
+            gap: 1ch;
+
+            font-size: 0.7em;
+
+            .bold {
+                font-size: 1.2em;
+            }
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .fade {
+            color: var(--color-gray-30);
+        }
+
+        &:hover {
+            background-color: var(--color-gray-95);
+        }
+    }
+
+    app-divider {
+        --divider-padding: var(--padding);
+    }
+}

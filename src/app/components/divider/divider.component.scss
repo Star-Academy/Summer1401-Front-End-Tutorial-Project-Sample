@@ -1,8 +1,19 @@
 i {
+    --size: calc(100% - 2 * var(--component-padding, var(--divider-padding, 0)));
+
     background-color: var(--color-gray-90);
 
     display: block;
 
-    width: 0.1rem;
-    height: 100%;
+    margin: auto;
+
+    &.vertical {
+        width: 0.1rem;
+        height: var(--size);
+    }
+
+    &.horizontal {
+        width: var(--size);
+        height: 0.1rem;
+    }
 }

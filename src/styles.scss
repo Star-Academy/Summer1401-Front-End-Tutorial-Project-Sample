@@ -48,10 +48,35 @@ html {
 }
 
 body {
-    @include ngx-popperjs-theme(#fff, #000, 200px, 1);
-
     background-color: var(--color--body-background);
     color: var(--color--body-foreground);
+
+    popper-content {
+        .ngxp__container {
+            background-color: var(--color--body-background);
+            color: var(--color--body-foreground);
+            box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.1), 0 5px 8px 0 rgba(0, 0, 0, 0.04),
+                0 1px 14px 0 rgba(0, 0, 0, 0.02);
+
+            z-index: 1;
+
+            max-width: 25rem;
+
+            border: 0;
+
+            > .ngxp__arrow {
+                &:before {
+                    background-color: var(--color--body-background);
+                }
+            }
+        }
+
+        &.no-padding {
+            .ngxp__container {
+                padding: 0;
+            }
+        }
+    }
 }
 
 input,
@@ -74,32 +99,40 @@ ul {
 
 a {
     color: inherit;
+
+    text-decoration: none;
 }
 
 button,
 .button {
     background-color: transparent;
 
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    width: fit-content;
-
-    padding: 0.5em;
-
     border: none;
-    border-radius: var(--border-radius);
 
-    font-size: 1rem;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1;
+    font: inherit;
+    text-align: start;
 
     cursor: pointer;
 
-    &:hover {
-        background-color: var(--color-gray-95);
+    &:not(.reset) {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        width: fit-content;
+
+        padding: 0.5em;
+
+        border-radius: var(--border-radius);
+
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1;
+
+        &:hover {
+            background-color: var(--color-gray-95);
+        }
     }
 }
 

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {NgxPopperjsPlacements, NgxPopperjsTriggers} from 'ngx-popperjs';
+import {NgxPopperjsPlacements} from 'ngx-popperjs';
 
 @Component({
     selector: 'app-profile-button',
@@ -9,5 +9,8 @@ import {NgxPopperjsPlacements, NgxPopperjsTriggers} from 'ngx-popperjs';
 })
 export class ProfileButtonComponent {
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
-    public NgxPopperjsTriggers = NgxPopperjsTriggers;
+
+    public logoutButtonClickHandler(): void {
+        console.log('logoutButtonClickHandler');
+    }
 }

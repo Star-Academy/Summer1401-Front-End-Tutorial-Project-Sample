@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-divider',
-  templateUrl: './divider.component.html',
-  styleUrls: ['./divider.component.scss']
+    selector: 'app-divider',
+    templateUrl: './divider.component.html',
+    styleUrls: ['./divider.component.scss'],
 })
-export class DividerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class DividerComponent {
+    @Input() public variation: 'vertical' | 'horizontal' = 'vertical';
+    @Input() public padding: string = '';
 }

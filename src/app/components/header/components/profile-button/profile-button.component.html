@@ -1,8 +1,64 @@
-<button [popper]="popper1Content" [popperPlacement]="NgxPopperjsPlacements.BOTTOM">
+<button [popper]="popper1Content" [popperPlacement]="NgxPopperjsPlacements.BOTTOMSTART">
     <i class="far fa-user"></i>
     <i class="far fa-angle-down"></i>
 </button>
 
-<popper-content #popper1Content>
-    <p class="bold">Popper on bottom</p>
+<popper-content #popper1Content class="no-padding">
+    <div class="rows">
+        <a routerLink="profile">
+            <img src="/assets/images/user/profile-picture.png" alt="عکس پروفایل کاربر" />
+            <div class="bold">بیژن عیسی پور</div>
+            <i class="far fa-angle-left"></i>
+        </a>
+
+        <app-divider variation="horizontal"></app-divider>
+
+        <a routerLink="profile">
+            <i class="far fa-wallet"></i>
+            <div>کیف پول</div>
+            <div class="suffix">
+                <div class="bold">0</div>
+                <div class="fade">تومان</div>
+            </div>
+        </a>
+
+        <app-divider variation="horizontal"></app-divider>
+
+        <a routerLink="digiclub">
+            <i class="far fa-award"></i>
+            <div>دیجی‌کلاب</div>
+            <div class="suffix">
+                <div class="bold">1590</div>
+                <div class="fade">امتیاز</div>
+            </div>
+        </a>
+
+        <app-divider variation="horizontal"></app-divider>
+
+        <a routerLink="profile/orders">
+            <i class="far fa-shopping-bag"></i>
+            <div>سفارش‌ها</div>
+        </a>
+
+        <app-divider variation="horizontal"></app-divider>
+
+        <a routerLink="profile/lists">
+            <i class="far fa-heart"></i>
+            <div>لیست‌ها</div>
+        </a>
+
+        <app-divider variation="horizontal"></app-divider>
+
+        <a routerLink="profile/comments">
+            <i class="far fa-comment"></i>
+            <div>دیدگاه‌ها</div>
+        </a>
+
+        <app-divider variation="horizontal"></app-divider>
+
+        <button class="reset" (click)="logoutButtonClickHandler()">
+            <i class="far fa-arrow-right-from-bracket"></i>
+            <div>خروج از حساب کاربری</div>
+        </button>
+    </div>
 </popper-content>
