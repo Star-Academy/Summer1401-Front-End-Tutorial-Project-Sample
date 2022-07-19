@@ -5,6 +5,7 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
+        "build:prod": "ng build --base-href=/Summer1401-Front-End-Tutorial-Project-Sample/",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "lint": "ng lint"

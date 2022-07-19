@@ -19,7 +19,7 @@ jobs:
               run: npm ci
 
             - name: Build
-              run: ng build --base-href=/Summer1401-Front-End-Tutorial-Project-Sample//
+              run: npm run build:prod
 
             - name: Upload Build
               if: success()
