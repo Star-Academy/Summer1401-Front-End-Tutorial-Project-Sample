@@ -13,13 +13,13 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
     private readonly INTERVAL_DELAY: number = 3000;
 
     public items: Item[] = [
-        {src: '/assets/images/slides/slide01.jpg'},
-        {src: '/assets/images/slides/slide02.jpg'},
-        {src: '/assets/images/slides/slide03.jpg'},
-        {src: '/assets/images/slides/slide04.jpg'},
-        {src: '/assets/images/slides/slide05.jpg'},
-        {src: '/assets/images/slides/slide06.jpg'},
-        {src: '/assets/images/slides/slide07.jpg'},
+        {src: 'assets/images/slides/slide01.jpg'},
+        {src: 'assets/images/slides/slide02.jpg'},
+        {src: 'assets/images/slides/slide03.jpg'},
+        {src: 'assets/images/slides/slide04.jpg'},
+        {src: 'assets/images/slides/slide05.jpg'},
+        {src: 'assets/images/slides/slide06.jpg'},
+        {src: 'assets/images/slides/slide07.jpg'},
     ];
 
     public activeIndex: number = 0;
