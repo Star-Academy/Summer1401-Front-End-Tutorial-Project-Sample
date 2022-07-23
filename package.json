@@ -8,7 +8,9 @@
         "build:prod": "ng build --base-href=/Summer1401-Front-End-Tutorial-Project-Sample/",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "lint": "ng lint"
+        "lint": "ng lint",
+        "stylelint": "stylelint \"**/*.scss\"",
+        "stylelint:fix": "stylelint \"**/*.scss\" --fix"
     },
     "private": true,
     "dependencies": {
@@ -48,7 +50,12 @@
         "karma-coverage": "~2.0.3",
         "karma-jasmine": "~4.0.0",
         "karma-jasmine-html-reporter": "~1.7.0",
+        "postcss": "^8.4.14",
         "prettier": "^2.6.2",
+        "stylelint": "^14.9.1",
+        "stylelint-config-prettier-scss": "^0.0.1",
+        "stylelint-config-standard-scss": "^5.0.0",
+        "stylelint-order": "^5.0.0",
         "typescript": "~4.3.5"
     }
 }
