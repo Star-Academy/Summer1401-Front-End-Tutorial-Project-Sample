@@ -29,7 +29,7 @@ jobs:
               if: success()
               run: npm run prettier:check
 
-            - name: Test
+            - name: Angular
               if: success()
               run: npm run test:ci
     build:
