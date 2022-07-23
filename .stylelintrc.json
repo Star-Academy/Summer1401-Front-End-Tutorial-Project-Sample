@@ -2,8 +2,8 @@
     "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
     "plugins": ["stylelint-order"],
     "rules": {
-	    "color-named": "never",
-	    "color-no-hex": true,
+        "color-named": "never",
+        "color-no-hex": true,
         "custom-property-empty-line-before": null,
         "declaration-block-no-redundant-longhand-properties": null,
         "declaration-empty-line-before": null,

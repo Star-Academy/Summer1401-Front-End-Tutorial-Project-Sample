@@ -8,9 +8,14 @@
         "build:prod": "ng build --base-href=/Summer1401-Front-End-Tutorial-Project-Sample/",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
+        "test:ci": "ng test --browsers=ChromeHeadless --watch=false",
         "lint": "ng lint",
-        "stylelint": "stylelint \"**/*.scss\"",
-        "stylelint:fix": "stylelint \"**/*.scss\" --fix"
+        "eslint:check": "ng lint",
+        "eslint:fix": "ng lint --fix",
+        "stylelint:check": "stylelint \"**/*.scss\"",
+        "stylelint:fix": "stylelint \"**/*.scss\" --fix",
+        "prettier:check": "prettier . --check",
+        "prettier:fix": "prettier . --write"
     },
     "private": true,
     "dependencies": {
