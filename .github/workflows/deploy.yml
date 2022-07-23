@@ -29,13 +29,12 @@ jobs:
               if: success()
               run: npm run prettier:check
 
-            - name: Test
+            - name: Angular
               if: success()
-              run: npm run test
+              run: npm run test:ci
     build:
         name: Build
         runs-on: ubuntu-latest
-        needs: test
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -60,7 +59,9 @@ jobs:
     deploy:
         name: Deploy
         runs-on: ubuntu-latest
-        needs: build
+        needs:
+            - test
+            - build
         steps:
             - name: Checkout
               uses: actions/checkout@v1
