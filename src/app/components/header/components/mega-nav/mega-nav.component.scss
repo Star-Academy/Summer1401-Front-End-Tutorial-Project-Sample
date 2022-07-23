@@ -48,7 +48,7 @@ nav {
                         &.active,
                         &:hover {
                             background-color: var(--color-gray-95);
-                            color: var(--color--primary);
+                            color: var(--color-primary);
                         }
                     }
                 }
@@ -79,7 +79,7 @@ nav {
                                 align-items: center;
                                 gap: 0.5rem;
 
-                                padding: 1rem 1rem;
+                                padding: 1rem;
 
                                 line-height: 1;
 
@@ -93,7 +93,7 @@ nav {
                                     &::before {
                                         content: "";
 
-                                        background-color: var(--color--primary);
+                                        background-color: var(--color-primary);
 
                                         width: 0.2rem;
                                         height: 1em;
@@ -101,7 +101,7 @@ nav {
                                 }
 
                                 &:hover {
-                                    color: var(--color--primary);
+                                    color: var(--color-primary);
                                 }
                             }
                         }
@@ -112,7 +112,7 @@ nav {
     }
 
     .indicator {
-        background-color: var(--color--primary);
+        background-color: var(--color-primary);
 
         position: absolute;
         inset-block-end: 0;
