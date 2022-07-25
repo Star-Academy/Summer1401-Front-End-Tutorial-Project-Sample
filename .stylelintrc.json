@@ -52,6 +52,7 @@
                     "background-size",
                     "color",
                     "accent-color",
+                    "fill",
                     "box-shadow",
                     "mix-blend-mode",
                     "opacity",
