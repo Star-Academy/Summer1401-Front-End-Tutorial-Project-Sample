@@ -9,13 +9,22 @@
         <app-search-box></app-search-box>
 
         <div class="buttons">
-            <app-profile-button></app-profile-button>
+            <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
+                <app-profile-button></app-profile-button>
 
-            <app-divider></app-divider>
+                <app-divider></app-divider>
 
-            <a routerLink="/cart" class="button">
-                <i class="far fa-cart-shopping"></i>
-            </a>
+                <a routerLink="/cart" class="button">
+                    <i class="far fa-cart-shopping"></i>
+                </a>
+            </ng-container>
+
+            <ng-template #notLoggedInTemplate>
+                <a routerLink="/auth" class="button">
+                    <i class="far fa-sign-in"></i>
+                    ورود | ثبت‌نام
+                </a>
+            </ng-template>
         </div>
     </div>
 
