@@ -14,6 +14,7 @@
     --color-gray-10: hsl(0deg 0% 10%);
 
     --color-primary: hsl(353deg 84% 58%);
+    --color-primary-darker: hsl(353deg 84% 50%);
     --color-primary-opposite: var(--color-gray-98);
 
     --color-fade: var(--color-gray-50);
@@ -130,6 +131,7 @@ button,
     &:not(.reset) {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 1rem;
 
         width: fit-content;
@@ -143,6 +145,15 @@ button,
 
         &:hover {
             background-color: var(--color-gray-95);
+        }
+    }
+
+    &.primary {
+        background-color: var(--color-primary);
+        color: var(--color-primary-opposite);
+
+        &:hover {
+            background-color: var(--color-primary-darker);
         }
     }
 }

@@ -10,7 +10,8 @@ import {NgxPopperjsPlacements} from 'ngx-popperjs';
 export class ProfileButtonComponent {
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
 
-    public logoutButtonClickHandler(): void {
-        console.log('logoutButtonClickHandler');
+    public async logoutButtonClickHandler(): Promise<void> {
+        localStorage.removeItem('token');
+        window.location.reload();
     }
 }

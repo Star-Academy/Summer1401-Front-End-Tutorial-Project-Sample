@@ -9,8 +9,8 @@ import {ApiError} from '../models/api-error.model';
 export class ApiService {
     public constructor(private snackbarService: SnackbarService) {}
 
-    public async post<T>(url: string, init: Partial<RequestInit> = {}): Promise<T | null> {
-        const response = await fetch(url, {...POST_REQUEST_INIT, ...init});
+    public async post<T>(url: string, body: any = '', init: Partial<RequestInit> = {}): Promise<T | null> {
+        const response = await fetch(url, {...POST_REQUEST_INIT, body: JSON.stringify(body), ...init});
         const data = await response.json();
 
         if (response.status === 200) return data as T;

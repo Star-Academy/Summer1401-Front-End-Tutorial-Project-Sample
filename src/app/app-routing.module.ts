@@ -5,11 +5,12 @@ import {HomeComponent} from './pages/home/home.component';
 import {AuthComponent} from './pages/auth/auth.component';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
+import {AuthService} from './services/auth.service';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
     {path: 'auth', component: AuthComponent},
-    {path: 'profile', component: ProfileComponent},
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthService]},
     {path: '**', component: NotFoundComponent},
 ];
 

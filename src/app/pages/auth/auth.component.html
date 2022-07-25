@@ -1,1 +1,24 @@
-<p>auth works!</p>
+<div class="auth content-wrapper">
+    <form (submit)="formSubmitHandler()">
+        <h1>
+            {{ isInLoginView ? 'ورود' : 'ثبت‌نام' }}
+        </h1>
+
+        <label>
+            نام کاربری:
+            <input type="text" name="username" [(ngModel)]="user.username" />
+        </label>
+
+        <label>
+            ایمیل:
+            <input type="email" name="email" [(ngModel)]="user.email" />
+        </label>
+
+        <label>
+            کلمه عبور:
+            <input type="password" name="password" [(ngModel)]="user.password" />
+        </label>
+
+        <button class="primary" type="submit">ورود</button>
+    </form>
+</div>
