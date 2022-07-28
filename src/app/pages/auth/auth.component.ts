@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {User} from 'src/app/models/user.model';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {UserLoginData} from '../../models/api/user-login-data.model';
 
 @Component({
     selector: 'app-auth',
@@ -9,9 +9,8 @@ import {Router} from '@angular/router';
     styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-    public user: User = {
+    public user: UserLoginData = {
         username: '',
-        email: '',
         password: '',
     };
 

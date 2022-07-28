@@ -7,7 +7,9 @@
     <div class="rows">
         <a routerLink="/profile">
             <img src="assets/images/user/profile-picture.png" alt="عکس پروفایل کاربر" />
-            <div class="bold">بیژن عیسی پور</div>
+            <div class="bold">
+                {{ authService.cachedUser?.firstName + ' ' + authService.cachedUser?.lastName }}
+            </div>
             <i class="far fa-angle-left"></i>
         </a>
 

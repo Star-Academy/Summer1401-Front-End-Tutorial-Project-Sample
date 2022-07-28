@@ -11,7 +11,7 @@ import {AuthService} from '../../../../services/auth.service';
 export class ProfileButtonComponent {
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
 
-    public constructor(private authService: AuthService) {}
+    public constructor(public authService: AuthService) {}
 
     public async logoutButtonClickHandler(): Promise<void> {
         await this.authService.logout();

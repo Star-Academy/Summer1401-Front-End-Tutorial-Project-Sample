@@ -3,7 +3,7 @@ import {POST_REQUEST_INIT} from '../utils/api.utils';
 import {SnackbarService} from './snackbar.service';
 import {SnackbarTheme} from '../enums/snackbar-theme.enum';
 import {ResponseError} from '../models/api/response-error.model';
-import {PostRequestOptions} from '../models/api/post-request-options.model';
+import {GetRequestOptions, PostRequestOptions, RequestOptions} from '../models/api/request-options.model';
 
 @Injectable({
     providedIn: 'root',
@@ -11,10 +11,18 @@ import {PostRequestOptions} from '../models/api/post-request-options.model';
 export class ApiService {
     public constructor(private snackbarService: SnackbarService) {}
 
-    public async post<T>(options: PostRequestOptions): Promise<T | null> {
+    public async getRequest<T>(options: GetRequestOptions): Promise<T | null> {
+        return await this.fetchRequest<T>(options, options.init);
+    }
+
+    public async postRequest<T>(options: PostRequestOptions): Promise<T | null> {
+        const init = ApiService.generatePostRequestInit(options);
+        return await this.fetchRequest<T>(options, init);
+    }
+
+    private async fetchRequest<T>(options: RequestOptions, init?: RequestInit): Promise<T | null> {
         const {url, showError = true} = options;
 
-        const init = ApiService.generatePostRequestInit(options);
         const response = await fetch(url, init);
         const data = await response.json();
 
