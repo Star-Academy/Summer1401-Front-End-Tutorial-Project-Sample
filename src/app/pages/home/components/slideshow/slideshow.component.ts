@@ -24,17 +24,14 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
 
     public activeIndex: number = 0;
 
-    private interval: number | null = null;
+    private interval!: number;
 
     public ngAfterViewInit(): void {
         this.resetInterval();
     }
 
     public ngOnDestroy(): void {
-        if (this.interval !== null) {
-            clearInterval(this.interval);
-            this.interval = null;
-        }
+        clearInterval(this.interval);
     }
 
     public changeActiveIndex(index: number): void {
@@ -46,7 +43,7 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
     }
 
     private resetInterval(): void {
-        if (this.interval !== null) clearInterval(this.interval);
+        clearInterval(this.interval);
 
         this.interval = setInterval(() => {
             this.changeActiveIndex(this.activeIndex + 1);

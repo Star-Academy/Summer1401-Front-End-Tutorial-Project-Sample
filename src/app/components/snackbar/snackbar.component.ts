@@ -14,14 +14,14 @@ export class SnackbarComponent {
     public message: string | null = null;
     public theme: SnackbarTheme = SnackbarTheme.DEFAULT;
 
-    private timeout: number | null = null;
+    private timeout!: number;
 
     public constructor(private changeDetectorRef: ChangeDetectorRef, private snackbarService: SnackbarService) {
         this.snackbarService.initComponent(this);
     }
 
     public show(options: SnackbarOptions): void {
-        this.clearTimeoutIfExists();
+        clearTimeout(this.timeout);
 
         this.message = options.message;
         this.theme = options.theme || SnackbarTheme.DEFAULT;
@@ -30,19 +30,11 @@ export class SnackbarComponent {
 
         this.timeout = setTimeout(() => {
             this.message = null;
-            this.timeout = null;
         }, this.FADE_OUT_DELAY);
     }
 
     public closeButtonClickHandler(): void {
-        this.clearTimeoutIfExists();
+        clearTimeout(this.timeout);
         this.message = null;
-    }
-
-    private clearTimeoutIfExists(): void {
-        if (this.timeout) {
-            clearTimeout(this.timeout);
-            this.timeout = null;
-        }
     }
 }

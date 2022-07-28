@@ -31,7 +31,7 @@ export class MegaNavComponent implements OnDestroy {
     public indicatorWidth: number = 0;
     public indicatorX: number = 0;
 
-    private indicatorFadeOutTimeout: number | null = null;
+    private indicatorFadeOutTimeout!: number;
 
     public constructor(private service: MegaNavService) {
         this.categories = this.service.fetchCategories();
@@ -39,11 +39,11 @@ export class MegaNavComponent implements OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this.removeTimeout();
+        clearTimeout(this.indicatorFadeOutTimeout);
     }
 
     public buttonMouseEnterHandler(e: MouseEvent): void {
-        this.removeTimeout();
+        clearTimeout(this.indicatorFadeOutTimeout);
 
         const rect = (e.target as HTMLButtonElement).getBoundingClientRect();
 
@@ -52,15 +52,10 @@ export class MegaNavComponent implements OnDestroy {
     }
 
     public buttonMouseLeaveHandler(): void {
+        clearTimeout(this.indicatorFadeOutTimeout);
+
         this.indicatorFadeOutTimeout = setTimeout(() => {
             this.indicatorWidth = 0;
         }, this.INDICATOR_FADE_OUT_DELAY);
-    }
-
-    private removeTimeout(): void {
-        if (this.indicatorFadeOutTimeout) {
-            clearTimeout(this.indicatorFadeOutTimeout);
-            this.indicatorFadeOutTimeout = null;
-        }
     }
 }
