@@ -1,0 +1,13 @@
+<form (submit)="formSubmitHandler()">
+    <label>
+        نام کاربری:
+        <input type="text" name="username" [(ngModel)]="user.username" />
+    </label>
+
+    <label>
+        کلمه عبور:
+        <input type="password" name="password" [(ngModel)]="user.password" />
+    </label>
+
+    <button class="primary" type="submit">ورود</button>
+</form>

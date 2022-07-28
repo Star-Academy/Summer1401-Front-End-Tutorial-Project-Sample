@@ -5,6 +5,7 @@
     --color-gray-95: hsl(0deg 0% 95%);
     --color-gray-92: hsl(0deg 0% 92%);
     --color-gray-90: hsl(0deg 0% 90%);
+    --color-gray-85: hsl(0deg 0% 85%);
     --color-gray-80: hsl(0deg 0% 80%);
     --color-gray-70: hsl(0deg 0% 70%);
     --color-gray-50: hsl(0deg 0% 50%);
@@ -15,23 +16,25 @@
 
     --color-primary: hsl(353deg 84% 58%);
     --color-primary-darker: hsl(353deg 84% 50%);
-    --color-primary-opposite: var(--color-gray-10);
+    --color-primary-opposite: var(--color-gray-98);
 
     --color-info: hsl(200deg 84% 58%);
     --color-info-darker: hsl(200deg 84% 50%);
-    --color-info-opposite: var(--color-gray-10);
+    --color-info-opposite: var(--color-gray-98);
 
     --color-success: hsl(130deg 60% 58%);
     --color-success-darker: hsl(130deg 60% 50%);
-    --color-success-opposite: var(--color-gray-10);
+    --color-success-opposite: var(--color-gray-98);
 
     --color-warning: hsl(30deg 90% 58%);
     --color-warning-darker: hsl(30deg 90% 50%);
-    --color-warning-opposite: var(--color-gray-10);
+    --color-warning-opposite: var(--color-gray-98);
 
     --color-danger: hsl(0deg 100% 58%);
     --color-danger-darker: hsl(0deg 100% 50%);
-    --color-danger-opposite: var(--color-gray-10);
+    --color-danger-opposite: var(--color-gray-98);
+
+    --color-link: var(--color-info);
 
     --color-fade: var(--color-gray-50);
     --color-fader: var(--color-gray-70);
@@ -47,6 +50,9 @@
 
     --minimum-inline-padding: 4rem;
 
+    --padding-form-element: 1rem 2rem;
+
+    --border: 0.1rem solid var(--color-gray-85);
     --border-radius: 0.5rem;
 
     --animation-duration-fast: 0.2s;
@@ -125,7 +131,7 @@ ol {
 }
 
 a {
-    color: inherit;
+    color: var(--color-link);
 
     display: block;
 
@@ -144,7 +150,7 @@ button,
 
     cursor: pointer;
 
-    &:not(.reset) {
+    &:not(.reset, .link) {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -152,16 +158,19 @@ button,
 
         width: fit-content;
 
-        padding: 1rem;
+        padding: var(--padding-form-element);
 
         border-radius: var(--border-radius);
 
         text-align: center;
-        line-height: 1;
 
         &:hover {
             background-color: var(--color-gray-95);
         }
+    }
+
+    &.link {
+        color: var(--color-link);
     }
 
     &.primary {
@@ -214,6 +223,23 @@ svg {
 
         &:focus {
             outline: none;
+        }
+    }
+}
+
+form {
+    label {
+        input {
+            background-color: transparent;
+
+            padding: var(--padding-form-element);
+
+            border: var(--border);
+            border-radius: var(--border-radius);
+
+            &:focus {
+                outline: none;
+            }
         }
     }
 }

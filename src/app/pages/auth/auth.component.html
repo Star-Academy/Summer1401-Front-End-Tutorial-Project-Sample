@@ -1,24 +1,35 @@
 <div class="auth content-wrapper">
-    <form (submit)="formSubmitHandler()">
+    <div class="box">
+        <a routerLink="/" class="logo" aria-label="دیجی‌کالا">
+            <img src="assets/logos/digikala-en.svg" alt="" />
+        </a>
+
         <h1>
             {{ isInLoginView ? 'ورود' : 'ثبت‌نام' }}
         </h1>
 
-        <label>
-            نام کاربری:
-            <input type="text" name="username" [(ngModel)]="user.username" />
-        </label>
+        <app-login-form *ngIf="isInLoginView"></app-login-form>
+        <app-register-form *ngIf="!isInLoginView"></app-register-form>
 
-        <!--        <label>-->
-        <!--            ایمیل:-->
-        <!--            <input type="email" name="email" [(ngModel)]="user.email" />-->
-        <!--        </label>-->
+        <p>
+            {{ isInLoginView ? 'ورود' : 'ثبت‌نام' }}
+            شما به معنای پذیرش
+            <a routerLink="#">شرایط دیجی‌کالا</a>
+            و
+            <a routerLink="#">قوانین حریم‌خصوصی</a>
+            است.
+        </p>
 
-        <label>
-            کلمه عبور:
-            <input type="password" name="password" [(ngModel)]="user.password" />
-        </label>
+        <p>
+            <ng-container *ngIf="isInLoginView">
+                حساب کاربری ندارید؟
+                <button class="link" (click)="toggleView()">ثبت‌نام کنید!</button>
+            </ng-container>
 
-        <button class="primary" type="submit">ورود</button>
-    </form>
+            <ng-container *ngIf="!isInLoginView">
+                قبلاً حساب کاربری ساخته‌اید؟
+                <button class="link" (click)="toggleView()">وارد شوید!</button>
+            </ng-container>
+        </p>
+    </div>
 </div>
