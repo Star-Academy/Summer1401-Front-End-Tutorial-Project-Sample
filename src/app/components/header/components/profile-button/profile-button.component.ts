@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 
 import {NgxPopperjsPlacements} from 'ngx-popperjs';
+import {AuthService} from '../../../../services/auth.service';
 
 @Component({
     selector: 'app-profile-button',
@@ -10,8 +11,9 @@ import {NgxPopperjsPlacements} from 'ngx-popperjs';
 export class ProfileButtonComponent {
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
 
+    public constructor(private authService: AuthService) {}
+
     public async logoutButtonClickHandler(): Promise<void> {
-        localStorage.removeItem('token');
-        window.location.reload();
+        await this.authService.logout();
     }
 }
