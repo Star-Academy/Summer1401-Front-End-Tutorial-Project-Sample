@@ -1,0 +1,7 @@
+<div *ngIf="!!message" class="wrapper" [style.--color]="color">
+    <div class="message">{{ message }}</div>
+
+    <button (click)="closeButtonClickHandler()">
+        <i class="far fa-times"></i>
+    </button>
+</div>
