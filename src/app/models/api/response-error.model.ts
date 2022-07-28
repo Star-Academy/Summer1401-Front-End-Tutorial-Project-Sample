@@ -1,4 +1,4 @@
-export interface ApiError {
+export interface ResponseError {
     message: string;
     trace: string;
 }
