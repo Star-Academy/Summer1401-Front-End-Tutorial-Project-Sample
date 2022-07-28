@@ -1,7 +1,9 @@
-.wrapper {
+.snackbar {
     --offset: 2rem;
 
-    color: var(--color, var(--color--body-foreground));
+    background-color: var(--snackbar-background-color, var(--color-body-background));
+    color: var(--snackbar-color, var(--color-body-foreground));
+    opacity: 0;
 
     position: fixed;
     inset-block-end: var(--offset);
@@ -15,10 +17,49 @@
 
     padding: 1rem;
 
-    border: 0.1rem solid currentColor;
-    border-inline-start-width: 0.3rem;
+    border: 0.1rem solid currentcolor;
+    border-inline-start-width: 0.5rem;
+
+    transform: translateX(calc(100% + var(--offset)));
+
+    transition: var(--animation-duration-fast) ease-out;
+    transition-property: transform, opacity;
 
     button {
+        background-color: inherit;
+        color: inherit;
+
         margin-inline-start: auto;
+    }
+
+    &.show {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+    &.primary {
+        --snackbar-background-color: var(--color-primary-opposite);
+        --snackbar-color: var(--color-primary);
+    }
+
+    &.info {
+        --snackbar-background-color: var(--color-info-opposite);
+        --snackbar-color: var(--color-info);
+    }
+
+    &.success {
+        --snackbar-background-color: var(--color-success-opposite);
+        --snackbar-color: var(--color-success);
+    }
+
+    &.warning {
+        --snackbar-background-color: var(--color-warning-opposite);
+        --snackbar-color: var(--color-warning);
+    }
+
+    &.danger {
+        --snackbar-background-color: var(--color-danger-opposite);
+        --snackbar-color: var(--color-danger);
     }
 }

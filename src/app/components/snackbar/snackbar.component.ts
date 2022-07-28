@@ -1,5 +1,6 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import {SnackbarService} from '../../services/snackbar.service';
+import {SnackbarTheme} from '../../enums/snackbar-theme.enum';
 
 @Component({
     selector: 'app-snackbar',
@@ -7,10 +8,10 @@ import {SnackbarService} from '../../services/snackbar.service';
     styleUrls: ['./snackbar.component.scss'],
 })
 export class SnackbarComponent {
-    private readonly FADE_OUT_DELAY: number = 3_000;
+    private readonly FADE_OUT_DELAY: number = 5_000;
 
     public message: string | null = null;
-    public color: string | null = null;
+    public theme: SnackbarTheme = SnackbarTheme.DEFAULT;
 
     private timeout: number | null = null;
 
@@ -18,11 +19,11 @@ export class SnackbarComponent {
         this.snackbarService.initComponent(this);
     }
 
-    public show(message: string, color?: string): void {
+    public show(message: string, theme?: SnackbarTheme): void {
         this.clearTimeoutIfExists();
 
         this.message = message;
-        this.color = color || null;
+        this.theme = theme || SnackbarTheme.DEFAULT;
 
         this.changeDetectorRef.detectChanges();
 

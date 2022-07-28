@@ -1,4 +1,4 @@
-<div *ngIf="!!message" class="wrapper" [style.--color]="color">
+<div class="snackbar" [ngClass]="theme" [class.show]="!!message">
     <div class="message">{{ message }}</div>
 
     <button (click)="closeButtonClickHandler()">

@@ -15,7 +15,23 @@
 
     --color-primary: hsl(353deg 84% 58%);
     --color-primary-darker: hsl(353deg 84% 50%);
-    --color-primary-opposite: var(--color-gray-98);
+    --color-primary-opposite: var(--color-gray-10);
+
+    --color-info: hsl(200deg 84% 58%);
+    --color-info-darker: hsl(200deg 84% 50%);
+    --color-info-opposite: var(--color-gray-10);
+
+    --color-success: hsl(130deg 60% 58%);
+    --color-success-darker: hsl(130deg 60% 50%);
+    --color-success-opposite: var(--color-gray-10);
+
+    --color-warning: hsl(30deg 90% 58%);
+    --color-warning-darker: hsl(30deg 90% 50%);
+    --color-warning-opposite: var(--color-gray-10);
+
+    --color-danger: hsl(0deg 100% 58%);
+    --color-danger-darker: hsl(0deg 100% 50%);
+    --color-danger-opposite: var(--color-gray-10);
 
     --color-fade: var(--color-gray-50);
     --color-fader: var(--color-gray-70);
