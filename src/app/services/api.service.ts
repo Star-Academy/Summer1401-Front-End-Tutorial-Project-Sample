@@ -16,7 +16,7 @@ export class ApiService {
 
         if (response.status === 200) return data as T;
 
-        this.snackbarService.show((data as ApiError).message, SnackbarTheme.DANGER);
+        this.snackbarService.show({message: (data as ApiError).message, theme: SnackbarTheme.DANGER});
         return null;
     }
 }

@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import {SnackbarService} from '../../services/snackbar.service';
 import {SnackbarTheme} from '../../enums/snackbar-theme.enum';
+import {SnackbarOptions} from '../../models/snackbar-options.model';
 
 @Component({
     selector: 'app-snackbar',
@@ -19,11 +20,11 @@ export class SnackbarComponent {
         this.snackbarService.initComponent(this);
     }
 
-    public show(message: string, theme?: SnackbarTheme): void {
+    public show(options: SnackbarOptions): void {
         this.clearTimeoutIfExists();
 
-        this.message = message;
-        this.theme = theme || SnackbarTheme.DEFAULT;
+        this.message = options.message;
+        this.theme = options.theme || SnackbarTheme.DEFAULT;
 
         this.changeDetectorRef.detectChanges();
 

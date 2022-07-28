@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {SnackbarComponent} from '../components/snackbar/snackbar.component';
-import {SnackbarTheme} from '../enums/snackbar-theme.enum';
+import {SnackbarOptions} from '../models/snackbar-options.model';
 
 @Injectable({
     providedIn: 'root',
@@ -12,7 +12,7 @@ export class SnackbarService {
         this.snackbarComponent = snackbarComponent;
     }
 
-    public show(message: string, theme?: SnackbarTheme): void {
-        this.snackbarComponent.show(message, theme);
+    public show(options: SnackbarOptions): void {
+        this.snackbarComponent.show(options);
     }
 }
