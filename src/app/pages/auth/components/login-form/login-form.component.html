@@ -6,14 +6,7 @@
 
     <label data-flip-id="password">
         کلمه عبور:
-        <input
-            id="current-password"
-            dir="ltr"
-            type="password"
-            name="password"
-            autocomplete="current-password"
-            [(ngModel)]="user.password"
-        />
+        <app-password-input [isNew]="false" [(value)]="user.password"></app-password-input>
     </label>
 
     <button class="primary" type="submit" data-flip-id="submit">ورود</button>
