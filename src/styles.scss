@@ -45,6 +45,9 @@
     --color-body-background: var(--color-default-background);
     --color-body-foreground: var(--color-default-foreground);
 
+    --color-spinner-background: hsl(0deg 0% 98% / 80%);
+    --color-spinner-foreground: var(--color-primary);
+
     --color-box-shadow-subtle: hsl(0deg 90% 10% / 12%);
     --box-shadow-subtle: 0 0.2rem 1rem 0 var(--color-box-shadow-subtle);
 

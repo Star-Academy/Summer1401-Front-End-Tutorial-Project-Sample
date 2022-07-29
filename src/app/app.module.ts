@@ -12,6 +12,7 @@ import {SnackbarModule} from './components/snackbar/snackbar.module';
 import {HeaderModule} from './components/header/header.module';
 import {FooterModule} from './components/footer/footer.module';
 import {DividerModule} from './components/divider/divider.module';
+import {SpinnerModule} from './components/spinner/spinner.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -26,6 +27,7 @@ import {DividerModule} from './components/divider/divider.module';
         HeaderModule,
         FooterModule,
         DividerModule,
+        SpinnerModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
