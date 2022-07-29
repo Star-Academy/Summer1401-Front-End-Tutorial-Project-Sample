@@ -9,7 +9,7 @@ import {v4 as uuid} from 'uuid';
     styleUrls: ['./spinner.component.scss'],
 })
 export class SpinnerComponent {
-    public ids: string[] = ['chiz'];
+    public ids: string[] = [];
 
     public constructor(private changeDetectorRef: ChangeDetectorRef, private spinnerService: SpinnerService) {
         this.spinnerService.initComponent(this);
@@ -18,12 +18,13 @@ export class SpinnerComponent {
     public show(): string {
         const id = uuid();
         this.ids.push(id);
+
         return id;
     }
 
     public hide(id: string): void {
         const index = this.ids.findIndex((x) => x === id);
-        if (index !== -1) this.ids = this.ids.splice(index, 1);
+        if (index !== -1) this.ids.splice(index, 1);
     }
 
     public hideAll(): void {
