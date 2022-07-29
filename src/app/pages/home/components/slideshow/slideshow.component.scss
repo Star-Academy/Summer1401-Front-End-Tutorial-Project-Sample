@@ -1,9 +1,10 @@
 .slideshow {
     position: relative;
+    overflow: hidden;
+
+    aspect-ratio: 24 / 5;
 
     ol {
-        overflow: hidden;
-
         display: flex;
 
         li {
