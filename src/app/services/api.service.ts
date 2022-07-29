@@ -26,7 +26,7 @@ export class ApiService {
         const response = await fetch(url, init);
         const data = await response.json();
 
-        if (response.status === 200) return data as T;
+        if (response.ok) return data as T;
 
         if (showError)
             this.snackbarService.show({message: (data as ResponseError).message, theme: SnackbarTheme.DANGER});

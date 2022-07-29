@@ -22,7 +22,7 @@ export class RegisterFormComponent {
     public constructor(private router: Router, private authService: AuthService) {}
 
     public async formSubmitHandler(): Promise<void> {
-        const succeeded = await this.authService.login(this.user);
+        const succeeded = await this.authService.register(this.user);
         if (succeeded) await this.router.navigateByUrl('/');
     }
 }

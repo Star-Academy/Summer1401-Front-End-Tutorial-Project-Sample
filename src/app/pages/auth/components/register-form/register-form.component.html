@@ -1,18 +1,19 @@
 <form (submit)="formSubmitHandler()">
     <label data-flip-id="username">
         نام کاربری:
-        <input type="text" name="username" autocomplete="username" [(ngModel)]="user.username" />
+        <input dir="ltr" type="text" name="username" autocomplete="username" [(ngModel)]="user.username" />
     </label>
 
     <label data-flip-id="email" [class.hide]="isChangingView">
         ایمیل:
-        <input type="email" name="email" autocomplete="email" [(ngModel)]="user.email" />
+        <input dir="ltr" type="email" name="email" autocomplete="email" [(ngModel)]="user.email" />
     </label>
 
     <label data-flip-id="password">
         کلمه عبور:
         <input
             id="new-password"
+            dir="ltr"
             type="password"
             name="password"
             autocomplete="new-password"

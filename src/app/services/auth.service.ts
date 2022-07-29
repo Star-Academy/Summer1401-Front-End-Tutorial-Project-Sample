@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
-import {API_USER_AUTH, API_USER_LOGIN, API_USER_ONE} from '../utils/api.utils';
+import {API_USER_AUTH, API_USER_LOGIN, API_USER_ONE, API_USER_REGISTER} from '../utils/api.utils';
 import {ApiService} from './api.service';
 import {TokenObject} from '../models/api/token-object.model';
 import {User} from '../models/user.model';
 import {Router} from '@angular/router';
 import {UserLoginData} from '../models/api/user-login-data.model';
+import {UserRegisterData} from '../models/api/user-register-data.model';
 
 @Injectable({
     providedIn: 'root',
@@ -31,23 +32,25 @@ export class AuthService {
         const response = await this.apiService.postRequest<TokenObject>({url: API_USER_LOGIN, body: user});
         if (!response) return false;
 
-        this.cachedIsLoggedIn = true;
-        this.cachedUserId = response.id ?? null;
-        localStorage.setItem('token', response.token);
-
-        if (this.cachedUserId) await this.fetchLoggedInUserInfo();
-
+        await this.saveCache(response.token, true, response.id ?? null);
         return true;
     }
 
-    public async fetchLoggedInUserInfo(): Promise<void> {
+    public async register(user: UserRegisterData): Promise<boolean> {
+        const response = await this.apiService.postRequest<TokenObject>({url: API_USER_REGISTER, body: user});
+        if (!response) return false;
+
+        await this.saveCache(response.token, true, response.id ?? null);
+        return true;
+    }
+
+    public async fetchLoggedInUserInfo(): Promise<User | null> {
         const response = await this.apiService.getRequest<{user: User}>({url: `${API_USER_ONE}/${this.cachedUserId}`});
-        this.cachedUser = response?.user || null;
+        return response?.user || null;
     }
 
     public async logout(): Promise<void> {
-        this.cachedIsLoggedIn = false;
-        localStorage.removeItem('token');
+        await this.saveCache(null, false, null);
         await this.router.navigateByUrl('/');
     }
 
@@ -58,11 +61,17 @@ export class AuthService {
             showError: false,
         });
 
-        this.cachedIsLoggedIn = !!response;
-        this.cachedUserId = response?.id ?? null;
+        await this.saveCache(this.token, !!response, response?.id ?? null);
+        return !!this.cachedIsLoggedIn;
+    }
 
-        if (this.cachedUserId) await this.fetchLoggedInUserInfo();
+    private async saveCache(token: string | null, isLoggedIn: boolean, userId: number | null): Promise<void> {
+        if (!!token) localStorage.setItem('token', token);
+        else localStorage.removeItem('token');
 
-        return this.cachedIsLoggedIn;
+        this.cachedIsLoggedIn = isLoggedIn;
+        this.cachedUserId = userId;
+
+        if (this.cachedUserId) this.cachedUser = await this.fetchLoggedInUserInfo();
     }
 }
