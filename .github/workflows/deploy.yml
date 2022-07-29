@@ -77,3 +77,6 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   BRANCH: gh-pages
                   FOLDER: deploy_dist/Summer1401-Front-End-Tutorial-Project-Sample
+
+            - name: 404.html Hack
+              run: ln -s index.html 404.html
