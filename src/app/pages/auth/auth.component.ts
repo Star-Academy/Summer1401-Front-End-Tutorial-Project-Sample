@@ -15,7 +15,7 @@ export class AuthComponent {
     @ViewChild('boxRef') private boxRef!: ElementRef<HTMLDivElement>;
 
     public isChangingView: boolean = false;
-    public isInLoginView: boolean = true;
+    public isInLoginView: boolean = false;
 
     public constructor(private changeDetectorRef: ChangeDetectorRef) {}
 

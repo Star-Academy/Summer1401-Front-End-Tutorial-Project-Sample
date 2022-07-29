@@ -79,6 +79,8 @@ footer {
             }
 
             .social-medias {
+                color: var(--color-fade);
+
                 display: flex;
                 align-items: center;
                 gap: 4rem;
@@ -86,12 +88,6 @@ footer {
                 margin-block-end: 2rem;
 
                 font-size: 3.2rem;
-
-                li {
-                    a {
-                        color: var(--color-fade);
-                    }
-                }
             }
 
             form {

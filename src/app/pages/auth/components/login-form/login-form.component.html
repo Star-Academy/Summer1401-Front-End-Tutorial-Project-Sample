@@ -1,12 +1,18 @@
 <form (submit)="formSubmitHandler()">
     <label data-flip-id="username">
         نام کاربری:
-        <input type="text" name="username" [(ngModel)]="user.username" />
+        <input type="text" name="username" autocomplete="username" [(ngModel)]="user.username" />
     </label>
 
     <label data-flip-id="password">
         کلمه عبور:
-        <input type="password" name="password" [(ngModel)]="user.password" />
+        <input
+            id="current-password"
+            type="password"
+            name="password"
+            autocomplete="current-password"
+            [(ngModel)]="user.password"
+        />
     </label>
 
     <button class="primary" type="submit" data-flip-id="submit">ورود</button>

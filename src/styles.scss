@@ -131,17 +131,21 @@ ol {
 }
 
 a {
-    color: var(--color-link);
+    color: inherit;
 
     display: block;
 
     text-decoration: none;
+
+    &.colorful {
+        color: var(--color-link);
+    }
 }
 
 button,
 .button {
     background-color: transparent;
-	color: inherit;
+    color: inherit;
 
     border: none;
 
