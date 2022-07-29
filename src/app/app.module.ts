@@ -29,7 +29,6 @@ import {SpinnerModule} from './components/spinner/spinner.module';
         DividerModule,
         SpinnerModule,
     ],
-    providers: [],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
