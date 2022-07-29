@@ -11,6 +11,7 @@ import {ProfileModule} from './pages/profile/profile.module';
 import {SnackbarModule} from './components/snackbar/snackbar.module';
 import {HeaderModule} from './components/header/header.module';
 import {FooterModule} from './components/footer/footer.module';
+import {DividerModule} from './components/divider/divider.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -24,6 +25,7 @@ import {FooterModule} from './components/footer/footer.module';
         SnackbarModule,
         HeaderModule,
         FooterModule,
+        DividerModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
