@@ -7,6 +7,10 @@ form {
         display: flex;
         flex-direction: column;
         gap: 0.2rem;
+
+        &.hide {
+            opacity: 0;
+        }
     }
 
     button {

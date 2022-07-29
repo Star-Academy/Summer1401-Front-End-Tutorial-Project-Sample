@@ -1,13 +1,13 @@
 <form (submit)="formSubmitHandler()">
-    <label>
+    <label data-flip-id="username">
         نام کاربری:
         <input type="text" name="username" [(ngModel)]="user.username" />
     </label>
 
-    <label>
+    <label data-flip-id="password">
         کلمه عبور:
         <input type="password" name="password" [(ngModel)]="user.password" />
     </label>
 
-    <button class="primary" type="submit">ورود</button>
+    <button class="primary" type="submit" data-flip-id="submit">ورود</button>
 </form>

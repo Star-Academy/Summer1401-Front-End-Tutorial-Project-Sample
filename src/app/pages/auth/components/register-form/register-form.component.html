@@ -1,28 +1,28 @@
 <form (submit)="formSubmitHandler()">
-    <label>
+    <label data-flip-id="username">
         نام کاربری:
         <input type="text" name="username" [(ngModel)]="user.username" />
     </label>
 
-    <label>
+    <label data-flip-id="email" [class.hide]="isChangingView">
         ایمیل:
         <input type="email" name="email" [(ngModel)]="user.email" />
     </label>
 
-    <label>
+    <label data-flip-id="password">
         کلمه عبور:
         <input type="password" name="password" [(ngModel)]="user.password" />
     </label>
 
-    <label>
+    <label data-flip-id="firstName" [class.hide]="isChangingView">
         نام:
         <input type="text" name="firstName" [(ngModel)]="user.firstName" />
     </label>
 
-    <label>
+    <label data-flip-id="lastName" [class.hide]="isChangingView">
         نام‌خانوادگی:
         <input type="text" name="lastName" [(ngModel)]="user.lastName" />
     </label>
 
-    <button class="primary" type="submit">ثبت‌نام</button>
+    <button class="primary" type="submit" data-flip-id="submit">ثبت‌نام</button>
 </form>

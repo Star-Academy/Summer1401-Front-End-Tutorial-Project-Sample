@@ -4,20 +4,35 @@
 
     padding-block: 4rem;
 
+    [data-flip-id] {
+        transform-origin: top;
+    }
+
     .box {
+        position: relative;
+        isolation: isolate;
+
         display: flex;
         flex-direction: column;
         gap: 3rem;
 
-        min-inline-size: 30rem;
+        min-inline-size: 50rem;
         inline-size: 100%;
         max-inline-size: fit-content;
 
         margin: auto;
         padding: 4rem;
 
-        border: var(--border);
-        border-radius: var(--border-radius);
+        .background {
+            background-color: var(--color-body-background);
+
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+
+            border: var(--border);
+            border-radius: var(--border-radius);
+        }
 
         .logo {
             align-self: center;

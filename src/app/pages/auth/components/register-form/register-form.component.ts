@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../../../services/auth.service';
 import {UserRegisterData} from '../../../../models/api/user-register-data.model';
@@ -9,6 +9,8 @@ import {UserRegisterData} from '../../../../models/api/user-register-data.model'
     styleUrls: ['../../styles/form.scss'],
 })
 export class RegisterFormComponent {
+    @Input() public isChangingView: boolean = false;
+
     public user: UserRegisterData = {
         username: '',
         password: '',
