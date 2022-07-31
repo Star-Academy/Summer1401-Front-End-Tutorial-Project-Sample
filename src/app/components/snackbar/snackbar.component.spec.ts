@@ -1,8 +1,7 @@
 import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
-
 import {SnackbarComponent} from './snackbar.component';
-import {SnackbarOptions} from '../../models/snackbar-options.model';
 import {SnackbarTheme} from '../../enums/snackbar-theme.enum';
+import {SnackbarOptions} from '../../models/snackbar-options.model';
 
 describe('SnackbarComponent', () => {
     let fixture: ComponentFixture<SnackbarComponent>;
@@ -45,7 +44,7 @@ describe('SnackbarComponent', () => {
     it('tests closeButtonClickHandler', () => {
         const options: SnackbarOptions = {message: 'This is a message.'};
         show(options);
-        component.closeButtonClickHandler();
+        closeButtonClickHandler();
         testDom();
     });
 
@@ -63,7 +62,14 @@ describe('SnackbarComponent', () => {
         fixture.detectChanges();
     };
 
+    const closeButtonClickHandler = (): void => {
+        component.closeButtonClickHandler();
+        fixture.detectChanges();
+    };
+
     const testDom = (options?: SnackbarOptions): void => {
+        fixture.detectChanges();
+
         testSnackbar(options);
         testSnackbarMessage(options);
         testSnackbarButton();
@@ -75,7 +81,9 @@ describe('SnackbarComponent', () => {
 
         expect(snackbar).toBeTruthy();
         expect(snackbar?.classList).toContain(options?.theme || SnackbarTheme.DEFAULT);
+
         if (!!options?.message) expect(snackbar?.classList).toContain('show');
+        else expect(snackbar?.classList).not.toContain('show');
     };
 
     const testSnackbarMessage = (options?: SnackbarOptions): void => {
