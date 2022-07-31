@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {DividerComponent} from './divider.component';
 
 describe('DividerComponent', () => {
@@ -25,26 +24,27 @@ describe('DividerComponent', () => {
     });
 
     it('should render line - default inputs', () => {
-        testVariation('vertical');
+        testVariation();
     });
 
-    it('should render line - vertical', () => {
-        testVariation('vertical');
-    });
-
-    it('should render line - horizontal', () => {
-        testVariation('horizontal');
-    });
+    const variations: Array<'vertical' | 'horizontal'> = ['vertical', 'horizontal'];
+    for (const variation of variations) {
+        it(`should render line - ${variation}`, () => {
+            testVariation(variation);
+        });
+    }
 
     // [SECTION] Utility Functions
 
-    const testVariation = (variation: 'vertical' | 'horizontal' | undefined): void => {
-        if (!!variation) component.variation = variation;
-        fixture.detectChanges();
+    const testVariation = (variation?: 'vertical' | 'horizontal'): void => {
+        if (!!variation) {
+            component.variation = variation;
+            fixture.detectChanges();
+        }
 
         const line = host.querySelector('i');
 
         expect(line).toBeTruthy();
-        expect(line?.className).toEqual(variation);
+        expect(line?.className).toEqual(variation || 'vertical');
     };
 });
