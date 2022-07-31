@@ -39,12 +39,12 @@ export class AuthComponent {
 
         const last = this.generateState();
         const inverts = this.generateInverts(first, last);
+
         await this.play(inverts);
     }
 
     private generateState(): FlipState {
-        const elements = Array.from(this.boxRef.nativeElement.querySelectorAll('*'));
-        const animatableElements = elements.filter((element) => element.hasAttribute('data-flip-id'));
+        const animatableElements = Array.from(this.boxRef.nativeElement.querySelectorAll('[data-flip-id]'));
 
         const entries: FlipEntry[] = animatableElements.map((element) => [
             element.getAttribute('data-flip-id')!,

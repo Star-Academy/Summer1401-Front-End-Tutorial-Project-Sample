@@ -6,7 +6,7 @@ export const API_USER_LOGIN = BASE_URL + '/user/login';
 export const API_USER_REGISTER = BASE_URL + '/user/register';
 export const API_USER_ALTER = BASE_URL + '/user/alter';
 
-export const POST_REQUEST_INIT: RequestInit = {
+export const DEFAULT_POST_REQUEST_INIT: RequestInit = {
     method: 'post',
     headers: {'Content-Type': 'application/json'},
 };

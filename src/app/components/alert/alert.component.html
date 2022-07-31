@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <header class="primary">
+        <div class="icon">
+            <i [class]="iconClassNames"></i>
+        </div>
+
+        <h2 #titleRef>{{ title }}</h2>
+    </header>
+
+    <main>
+        <p>{{ description }}</p>
+    </main>
+
+    <footer *ngIf="showFooter">
+        <button class="cancel">Cancel</button>
+        <button class="confirm">Confirm</button>
+    </footer>
+</div>

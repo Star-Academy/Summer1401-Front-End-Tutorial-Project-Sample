@@ -9,7 +9,7 @@ import {SnackbarOptions} from '../../models/snackbar-options.model';
     styleUrls: ['./snackbar.component.scss'],
 })
 export class SnackbarComponent {
-    readonly FADE_OUT_DELAY: number = 5_000;
+    public readonly FADE_OUT_DELAY: number = 5_000;
 
     public message: string | null = null;
     public theme: SnackbarTheme = SnackbarTheme.DEFAULT;

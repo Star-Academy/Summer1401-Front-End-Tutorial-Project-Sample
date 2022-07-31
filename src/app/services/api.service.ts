@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {POST_REQUEST_INIT} from '../utils/api.utils';
+import {DEFAULT_POST_REQUEST_INIT} from '../utils/api.utils';
 import {SnackbarService} from './snackbar.service';
 import {SnackbarTheme} from '../enums/snackbar-theme.enum';
 import {ResponseError} from '../models/api/response-error.model';
@@ -11,6 +11,14 @@ import {SpinnerService} from './spinner.service';
 })
 export class ApiService {
     public constructor(private spinnerService: SpinnerService, private snackbarService: SnackbarService) {}
+
+    private static generatePostRequestInit(options: PostRequestOptions): RequestInit {
+        return {
+            ...DEFAULT_POST_REQUEST_INIT,
+            body: JSON.stringify(options.body),
+            ...(options.init || {}),
+        };
+    }
 
     public async getRequest<T>(options: GetRequestOptions): Promise<T | null> {
         return await this.fetchRequest<T>(options, options.init);
@@ -38,13 +46,5 @@ export class ApiService {
 
             return null;
         });
-    }
-
-    private static generatePostRequestInit(options: PostRequestOptions): RequestInit {
-        return {
-            ...POST_REQUEST_INIT,
-            body: JSON.stringify(options.body),
-            ...(options.init || {}),
-        };
     }
 }
