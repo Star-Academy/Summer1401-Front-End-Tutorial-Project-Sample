@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import {SnackbarComponent} from './snackbar.component';
 import {SnackbarOptions} from '../../models/snackbar-options.model';
@@ -48,6 +48,13 @@ describe('SnackbarComponent', () => {
         component.closeButtonClickHandler();
         testDom();
     });
+
+    it('tests timeout', fakeAsync(() => {
+        const options: SnackbarOptions = {message: 'This is a message.'};
+        show(options);
+        tick(component.FADE_OUT_DELAY);
+        testDom();
+    }));
 
     // [SECTION] Utility Functions
 
