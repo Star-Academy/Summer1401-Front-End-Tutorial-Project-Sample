@@ -51,6 +51,7 @@ jobs:
               run: npm run build:prod
 
             - name: 404.html Hack
+              if: success()
               run: cp dist/Summer1401-Front-End-Tutorial-Project-Sample/index.html dist/Summer1401-Front-End-Tutorial-Project-Sample/404.html
 
             - name: Upload Build
